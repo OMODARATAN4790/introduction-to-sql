@@ -1,6 +1,7 @@
 CREATE DATABASE hospital_db;
 USE hospital_db;
 
+-- question 3.1 create table named patients
 CREATE TABLE patients(
     patient_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
@@ -10,6 +11,7 @@ CREATE TABLE patients(
     language VARCHAR(20) NOT NULL
 );
 
+-- question 3.2 create table named providers
 CREATE TABLE providers(
     provider_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
@@ -20,6 +22,7 @@ CREATE TABLE providers(
     date_joined DATE NOT NULL
 );
 
+-- question 3.3 create table named visits
 CREATE TABLE visits(
     visit_id INT PRIMARY KEY AUTO_INCREMENT,
     patient_id INT,
@@ -36,6 +39,7 @@ CREATE TABLE visits(
     FOREIGN KEY (provider_id) REFERENCES providers(provider_id)
 );
 
+-- question 3.4 create table named ed_visits
 CREATE TABLE ed_visits(
     ed_visit_id INT PRIMARY KEY AUTO_INCREMENT,
     visit_id INT,
@@ -47,6 +51,7 @@ CREATE TABLE ed_visits(
     FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
 );
 
+-- question 3.5 create table named admissions
 CREATE TABLE admissions(
     admission_id INT PRIMARY KEY AUTO_INCREMENT,
     patient_id INT,
@@ -58,6 +63,7 @@ CREATE TABLE admissions(
     FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
 );
 
+-- question 3.6 create table named discharges
 CREATE TABLE discharges(
     discharge_id INT PRIMARY KEY AUTO_INCREMENT,
     admission_id INT,
